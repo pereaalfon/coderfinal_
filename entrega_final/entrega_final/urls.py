@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from main import views as main_views
 from users import views as user_views
+from .views import MainModelCreateView # type: ignore
 
 urlpatterns = [
     path('admin/', admin.site.urls),
