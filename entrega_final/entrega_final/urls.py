@@ -19,15 +19,15 @@ from django.contrib import admin
 from django.urls import path, include
 from main import views as main_views
 from users import views as user_views
-from .views import MainModelCreateView # type: ignore
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.HomeView.as_view(), name='home'),          # Vista de inicio
-    path('about/', main_views.AboutView.as_view(), name='about'),   # Vista "Acerca de"
-    path('login/', user_views.LoginView.as_view(), name='login'), 
-    path('crear/', MainModelCreateView.as_view(), name='mainmodel_create'),
-    path('users/', include('users.urls')),
-    path('', include('main.urls')),
-
+    path('about/', main_views.AboutView.as_view(), name='about'),  # Vista "Acerca de"
+    path('login/', user_views.LoginView.as_view(), name='login'),  # Vista de login
+    path('crear/', main_views.MainModelCreateView.as_view(), name='mainmodel_create'),  # Vista de crear modelo en "main"
+    
+    # Incluye las URLs de las aplicaciones
+    path('users/', include('users.urls')),  # URLs de la aplicación "users"
+    path('main/', include('main.urls')),    # URLs de la aplicación "main" (evita usar '' para evitar conflicto)
 ]
