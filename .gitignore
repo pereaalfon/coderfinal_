@@ -283,4 +283,8 @@ pyrightconfig.json
 .history
 .ionide
 
+# extra
+.__pycache__/
+.db.sqlite3
+.media/
 # End of https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocodea

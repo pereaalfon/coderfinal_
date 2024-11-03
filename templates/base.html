@@ -1,0 +1,32 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Encabezado común -->
+    <header>
+        <h1>Mi Proyecto Django</h1>
+        <nav>
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'about' %}">Acerca de</a>
+            <a href="{% url 'login' %}">Login</a>
+        </nav>
+    </header>
+
+    <!-- Bloque de contenido variable -->
+    <main>
+        {% block content %}
+        <!-- El contenido de cada página específica se insertará aquí -->
+        {% endblock %}
+    </main>
+
+    <!-- Pie de página común -->
+    <footer>
+        <p>&copy; 2023 Mi Proyecto Django</p>
+    </footer>
+</body>
+</html>
